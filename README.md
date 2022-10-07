@@ -15,17 +15,17 @@ Knock-Knock is here to guess who might be at the door. Knock-Knock takes user in
   <summary>
     Site Flow
   </summary>
-<img src="./planning-docs/flowchart01.png" alt="Speghetti" width="50%">
+<img src="./planning-docs/flowchart01.png" alt="Speghetti" width="100%" />
 </details>
 
 <details>
   <summary>ERD</summary>
-  <img src="./planning-docs/wireframe01.png" alt="Sick flow with more jokes than Bazooka Joe">
+  <img src="./planning-docs/wireframe01.png" alt="Sick flow with more jokes than Bazooka Joe"  width="100%" />
 </details>
 
 <details>
   <summary>Wireframe</summary>
-  <img src="./planning-docs/actualwireframe01.png" alt=rip DOOM" width="80vw">
+  <img src="./planning-docs/actualwireframe01.png" alt=rip DOOM" width="100%" />
 </details>
 
 
