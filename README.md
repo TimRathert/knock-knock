@@ -19,9 +19,15 @@ Knock-Knock is here to guess who might be at the door. Knock-Knock takes user in
 </details>
 
 <details>
-  <summary>Wireframe</summary>
+  <summary>ERD</summary>
   <img src="./planning-docs/wireframe01.png" alt="Sick flow with more jokes than Bazooka Joe">
 </details>
+
+<details>
+  <summary>Wireframe</summary>
+  <img src="./planning-docs/actualwireframe01.png" alt=rip DOOM" width="80vw">
+</details>
+
 
 ## User Stories
 * User opens the page and clicks on a 'Knock-Knock' button to intiate interaction: "Knock, Knock", "Who's there?", __________
