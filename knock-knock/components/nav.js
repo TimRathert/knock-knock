@@ -1,7 +1,6 @@
-import { forwardRef, Fragment } from 'react'
+import React, { forwardRef, Fragment, useState, useEffect } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
-import React, { useState, useEffect } from 'react';
 
 const MyLink = forwardRef((props, ref) => {
   let { href, children, ...rest } = props
@@ -61,7 +60,7 @@ function nav() {
     motion-reduce:transition-none motion-reduce:hover:transform-none
     ${show ? 'top-0' : '' }
     `}
-    > <span className={`px-8 py-2 text-xl font-light tracking-widest`}>knock</span>
+    > <span className={`select-none px-8 py-2 text-xl font-light tracking-widest`}>knock</span>
       <Menu as="div" className="relative transition-opacity hover:bg-color5/10 rounded-md">
         <Menu.Button className="px-8 py-2 rounded-full text-white">Menu</Menu.Button>
         <Transition
@@ -72,7 +71,7 @@ function nav() {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
                 >
-          <Menu.Items className="absolute bg-color2 p-4 rounded-md flex flex-col w-32 shadow-inner shadow-color1">
+          <Menu.Items className="absolute bg-color2 p-4 rounded-md flex flex-col w-24 shadow-inner shadow-color1">
             {links.map((link) => (
             /* Use the `active` state to conditionally style the active item. */
             <Menu.Item key={link.href}>
