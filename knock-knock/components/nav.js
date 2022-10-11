@@ -1,6 +1,7 @@
 import { forwardRef, Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
+import React, { useState, useEffect } from 'react';
 
 const MyLink = forwardRef((props, ref) => {
   let { href, children, ...rest } = props
@@ -21,22 +22,47 @@ const links = [
 ]
 
 function nav() {
+  const [ show, setShow ] = useState(true);
+  const [ lastScrollY, setLastScrollY ] = useState(0); 
   
+  const NavVis = () => {
+    if (typeof window !== 'undefined') {
+      if (window.scrollY > lastScrollY){
+        setShow(false);
+      }
+      else{ setShow(true); }
+    }
+    setLastScrollY(window.scrollY)
+  };
+
+  useEffect(() => {
+    if (typeof window !== undefined){
+      window.addEventListener('scroll', NavVis);
+      return () => {
+        window.removeEventListener('scroll', NavVis);
+      };
+    }
+  }, [lastScrollY]);
+
   return (
-    <div className="
+    <div className={`
+    navbar
     flex
-    flex-row-reverse
+    flex-row
     justify-between 
     bg-gradient-to-r 
-    from-oscrayola 
-    to-xanadu
-    w-100vw
+    from-color1 
+    to-color2
+    w-screen
     h-12 
     items-center
+    transition-all
+    sticky
     motion-reduce:transition-none motion-reduce:hover:transform-none
-    "
-    >
-      <Menu as="div" className="relative transition-opacity hover:bg-medaquamarine/10 rounded-md">
+    ${show ? 'top-0' : '' }
+    `}
+    > <span className={`px-8 py-2 text-xl font-light tracking-widest`}>knock</span>
+      <Menu as="div" className="relative transition-opacity hover:bg-color5/10 rounded-md">
         <Menu.Button className="px-8 py-2 rounded-full text-white">Menu</Menu.Button>
         <Transition
                 enter="transition duration-200 ease-out"
@@ -46,7 +72,7 @@ function nav() {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
                 >
-          <Menu.Items className="absolute bg-xanadu p-4 rounded-md flex flex-col w-32 shadow-inner shadow-oscrayola">
+          <Menu.Items className="absolute bg-color2 p-4 rounded-md flex flex-col w-32 shadow-inner shadow-color1">
             {links.map((link) => (
             /* Use the `active` state to conditionally style the active item. */
             <Menu.Item key={link.href}>

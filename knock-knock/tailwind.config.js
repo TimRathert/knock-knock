@@ -6,11 +6,11 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'oscrayola':'#343e3d',
-      'xanadu':'#607466',
-      'turqgreen':'#aedcc0',
-      'emerald':'#7bd389',
-      'medaquamarine':'#38e4ae',
+      'color1':'#343e3d',
+      'color2':'#607466',
+      'color3':'#aedcc0',
+      'color4':'#7bd389',
+      'color5':'#38e4ae',
     },
     extends: {},
   },

@@ -10,12 +10,15 @@ export default function Home() {
         <title>Knock Knock</title>
         <meta name="description" content="This is Beans" />
         <link href="/knock-knock/styles/twMain.css" rel="stylesheet" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet"></link>
       </Head>
       <Navbar />  
-      <main className=''>
-        <div className={styles.container}>
-          Hello?  
-        </div>
+      <main className='flex flex-wrap w-screen justify-around'>
+
+
+    
       </main>
 
       <footer className={styles.footer}>
