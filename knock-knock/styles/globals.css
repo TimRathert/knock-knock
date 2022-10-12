@@ -5,7 +5,7 @@
 'color1':'#343e3d',
 'color2':'#607466',
 'color3':'#aedcc0',
-'color4':'#7bd389',
+'color4':'#7bd389', bright green
 'color5':'#38e4ae', 
 */
 
@@ -19,4 +19,21 @@ body {
   color: whitesmoke;
   
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
 
+::-webkit-scrollbar-track {
+  background: #343e3d; 
+  border-radius: 0.375rem;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #607466;
+  box-shadow: #343e3d 1px 1px; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}

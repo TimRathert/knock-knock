@@ -22,7 +22,7 @@ export default function Home() {
       </Head>
       <Navbar />  
       <main className='flex flex-wrap w-screen justify-around'>
-        <InteractiveWindow chatWindow = { chatWindow }/>
+        <InteractiveWindow chatWindow = { chatWindow } jokeState = { jokeState }/>
         <JokeInterface 
           setup = {setup} 
           setSetup = {setSetup} 
