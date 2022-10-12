@@ -3,10 +3,16 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Navbar from '../components/nav';
 import JokeInterface from '../components/jokeInterface';
-import React, { usaeEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Imports from '../components/imports'
+import InteractiveWindow from '../components/interactiveWindow';
 
 export default function Home() {
+  const [ setup, setSetup ] = useState('')
+  const [ jokeState, setJokeState ] = useState('init')
+  const chatWindow = useRef(null)
+  // joke states: init, setup, punchline, writeNew (optional), end
+  //console.log(jokeState)
   return (
     <div>
       <Head>
@@ -16,7 +22,14 @@ export default function Home() {
       </Head>
       <Navbar />  
       <main className='flex flex-wrap w-screen justify-around'>
-        <JokeInterface />
+        <InteractiveWindow chatWindow = { chatWindow }/>
+        <JokeInterface 
+          setup = {setup} 
+          setSetup = {setSetup} 
+          jokeState = { jokeState } 
+          setJokeState = { setJokeState }
+          chatWindow = { chatWindow }
+        />
       </main>
 
       <footer className={styles.footer}>
