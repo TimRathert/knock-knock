@@ -24,6 +24,7 @@ function jokeInterface(props) {
         }, time)
     }
     const knockknock = async (e) => {
+        setJokeState('')
         userText('Knock knock')
         responseText('Who\'s there?', 1000)
         setTimeout(() => {setJokeState('setup')}, 1000)
@@ -55,6 +56,7 @@ function jokeInterface(props) {
 
     const setupSubmit = async (e) => {
         e.preventDefault();
+        setJokeState('')
         const data = {setup: setup}
         userText(setup)
         try {
@@ -79,14 +81,14 @@ function jokeInterface(props) {
         const data = {setup: setup, punchline: punchline}
         userText(setup)
         try {
-            const response = await fetch(process.env.NEWJOKE_URL_TEST, {
+            const response = await fetch(process.env.NEWJOKE_URL, {
                 method: 'POST',
                 headers:{"Content-Type": 'application/json'},
                 body: JSON.stringify(data)
             })
             const newText = await (response.json())
             //console.log(await newText)
-            responseText(newText)
+            responseText(newText.message)
             setTimeout(() => {responseText('Want to try it out?')}, 500)
             setJokeState('end')
         }
@@ -94,7 +96,6 @@ function jokeInterface(props) {
             console.log(e)
         }
     }
-
 
     const handleChange = (e) => {
         setSetup(e.target.value)
@@ -115,7 +116,7 @@ function jokeInterface(props) {
             <div className={`transition-all shadow-lg bg-color2 rounded-lg p-4 w-5/6 md:w-1/2 p-2 md:m-8 text-black`}>
                 <form onSubmit={ setupSubmit } className={`select-none h-fit items-center flex flex-col justify-around md:flex-row`}>
                     <label className={`md: self-center`} htmlFor='setup'></label>
-                    <input onChange = { handleChange } className={`m-2 self-center shadow-md w-5/6 md:w-2/3 !text-[color:black]`} type='text' name='setup' id='setup' placeholder="Who\'s there?" />
+                    <input onChange = { handleChange } className={`m-2 self-center shadow-md w-5/6 md:w-2/3 !text-[color:black]`} type='text' name='setup' id='setup' placeholder="Who's there?" />
                     <button className={`p-2 bg-color4/60 rounded-lg border-0 shadow-md hover:bg-color5/10 md:m-2 md:text-lg md:border-2 md:border-color5/10`} type='submit'>send</button>
                 </form>
             </div>
