@@ -2,25 +2,29 @@ import React, { forwardRef, Fragment, useState, useEffect } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
 
-const MyLink = forwardRef((props, ref) => {
-  let { href, children, ...rest } = props
-  return (
-    <Link href={href}>
-      <a ref={ref} {...rest}>
-        {children}
-      </a>
-    </Link>
-  )
-})
-// add conditional list for auth status
-const links = [
-  { href: '/account-settings', label: 'Account' },
-  { href: '/support', label: 'Support' },
-  { href: '/license', label: 'License' },
-  { href: '/sign-out', label: 'Sign out' },
-]
 
-function nav() {
+function Nav() {
+
+  const MyLink = forwardRef((props, ref) => {
+    MyLink.displayName = 'MyLink'
+    let { href, children, ...rest } = props
+    return (
+      <Link href={href}>
+        <a ref={ref} {...rest}>
+          {children}
+        </a>
+      </Link>
+    )
+  })
+  // add conditional list for auth status
+  const links = [
+    { href: '/account-settings', label: 'Account' },
+    { href: '/support', label: 'Support' },
+    { href: '/license', label: 'License' },
+    { href: '/sign-out', label: 'Sign out' },
+  ]
+
+
   const [ show, setShow ] = useState(true);
   const [ lastScrollY, setLastScrollY ] = useState(0); 
   
@@ -39,9 +43,10 @@ function nav() {
       window.addEventListener('scroll', NavVis);
       return () => {
         window.removeEventListener('scroll', NavVis);
-      };
+      }
     }
-  }, [lastScrollY]);
+  }
+  ,[lastScrollY]);
 
   return (
     <div className={`
@@ -93,4 +98,4 @@ function nav() {
   )
 }
 
-export default nav
+export default Nav

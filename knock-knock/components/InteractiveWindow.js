@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import { animateScroll as scroll } from 'react-scroll'
 
-function interactiveWindow(props) {
+function InteractiveWindow(props) {
     //function updateScroll(){
     //     props.chatWindow.scrollTop = props.chatWindow.scrollHeight
     // }
@@ -17,4 +17,4 @@ function interactiveWindow(props) {
   )
 }
 
-export default interactiveWindow
+export default InteractiveWindow

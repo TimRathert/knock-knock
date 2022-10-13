@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 
-function jokeInterface(props) {
+function JokeInterface(props) {
     const setup = props.setup
     const [ punchline, setPunchline ] = useState('')
     const setSetup = props.setSetup
@@ -120,7 +120,7 @@ function jokeInterface(props) {
     if (jokeState == 'loading'){ 
         return (
             <div className={`transition-all shadow-lg bg-color2 rounded-lg p-4 w-5/6 md:w-1/2 p-2 md:m-8 text-black`}>
-                <i className="fa fa-spinner" aria-hidden="true"></i>
+                <p>Thinking...</p>
             </div>
         )
     }
@@ -167,4 +167,4 @@ function jokeInterface(props) {
 
 }
 
-export default jokeInterface
+export default JokeInterface
