@@ -7,7 +7,7 @@ function interactiveWindow(props) {
     // }
   useEffect(()=>{
     scroll.scrollToBottom({containerId	: 'interaction-window', smooth:true })
-    setTimeout(()=>{scroll.scrollToBottom({containerId	: 'interaction-window' })},500)
+    //setTimeout(()=>{scroll.scrollToBottom({containerId	: 'interaction-window' })},500)
     setTimeout(()=>{scroll.scrollToBottom({containerId	: 'interaction-window' })},1000)
   },[props.jokeState]) 
       

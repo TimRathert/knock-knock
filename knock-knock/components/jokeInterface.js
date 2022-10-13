@@ -111,6 +111,12 @@ function jokeInterface(props) {
             </div>
         )
     }
+    if (jokeState == ''){ 
+        return (
+            <div className={`transition-all shadow-lg bg-color2 rounded-lg p-4 w-5/6 md:w-1/2 p-2 md:m-8 text-black`}>
+            </div>
+        )
+    }
     if (jokeState == 'setup'){ 
         return (
             <div className={`transition-all shadow-lg bg-color2 rounded-lg p-4 w-5/6 md:w-1/2 p-2 md:m-8 text-black`}>
