@@ -18,9 +18,9 @@ function Nav() {
   })
   // add conditional list for auth status
   const links = [
-    { href: '/account-settings', label: 'Account' },
-    { href: '/support', label: 'Support' },
-    { href: '/license', label: 'License' },
+    { href: ' ', label: 'Account' },
+    { href: '  ', label: 'Support' },
+    { href: '   ', label: 'License' },
     { href: '/sign-out', label: 'Sign out' },
   ]
 
@@ -65,7 +65,7 @@ function Nav() {
     motion-reduce:transition-none motion-reduce:hover:transform-none
     ${show ? 'top-0' : '' }
     `}
-    > <span className={`select-none px-8 py-2 text-xl font-light tracking-widest`}>knock</span>
+    > <span className={`select-none px-8 py-2 text-xl font-light tracking-widest`}><Link href='/'>knock</Link></span>
       <Menu as="div" className="relative transition-opacity hover:bg-color5/10 rounded-md">
         <Menu.Button className="px-8 py-2 rounded-full text-white">Menu</Menu.Button>
         <Transition

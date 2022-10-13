@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.3",
+    "@leafygreen-ui/modal": "^10.1.1",
+    "firebase": "^9.12.1",
+    "firebaseui": "^6.0.1",
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
