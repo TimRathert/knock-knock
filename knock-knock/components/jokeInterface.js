@@ -24,21 +24,21 @@ function jokeInterface(props) {
         }, time)
     }
     const knockknock = async (e) => {
-        setJokeState('')
+        setJokeState('loading')
         userText('Knock knock')
         responseText('Who\'s there?', 1000)
         setTimeout(() => {setJokeState('setup')}, 1000)
     }
     const jokeCorrect = () => {
         userText('Yes')
-        setJokeState('')
+        setJokeState('loading')
         setTimeout(()=>{responseText('Of course it is!')},500)
         setTimeout(() => {responseText('Got another one?')}, 1000)
         setJokeState('end')
     }
     const jokeIncorrect = () => {
         userText('No')
-        setJokeState('')
+        setJokeState('loading')
         setTimeout(()=>{responseText('Oh, whoops...')},500)
         setTimeout(() => {responseText('What is the punchline?')}, 1000)
         setJokeState('newJoke') //
@@ -56,7 +56,7 @@ function jokeInterface(props) {
 
     const setupSubmit = async (e) => {
         e.preventDefault();
-        setJokeState('')
+        setJokeState('loading')
         const data = {setup: setup}
         userText(setup)
         try {
@@ -77,7 +77,7 @@ function jokeInterface(props) {
     }
     const newJokeSubmit = async (e) => {
         e.preventDefault();
-        setJokeState('')
+        setJokeState('loading')
         const data = {setup: setup, punchline: punchline}
         userText(setup)
         try {
@@ -114,6 +114,13 @@ function jokeInterface(props) {
     if (jokeState == ''){ 
         return (
             <div className={`transition-all shadow-lg bg-color2 rounded-lg p-4 w-5/6 md:w-1/2 p-2 md:m-8 text-black`}>
+            </div>
+        )
+    }
+    if (jokeState == 'loading'){ 
+        return (
+            <div className={`transition-all shadow-lg bg-color2 rounded-lg p-4 w-5/6 md:w-1/2 p-2 md:m-8 text-black`}>
+                <i className="fa fa-spinner" aria-hidden="true"></i>
             </div>
         )
     }

@@ -17,7 +17,7 @@ export default function Home() {
     <div>
       <Head>
         <title>Knock Knock</title>
-        <meta name="description" content="knock knock" />
+        <meta name="Knock Knock joke completion database achieved using basic machine learning api calls" content="knock knock" />
       <Imports />
       </Head>
       <Navbar />  
