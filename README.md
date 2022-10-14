@@ -5,12 +5,12 @@
 Knock-Knock is here to guess who might be at the door. Knock-Knock takes user input and attempts to interject the answer to the knock-knock jokes before you can. How rude.
 
 ## Table of Contents
--[Technology]{#technology}
--[Screenshots]{#screenshots}
--[Planning Docs]{#planning-docs}
--[User Stories]{#user-stories}
--[Goals]{#goals}
--[Closing Thoughts]{#closing-thoughts}
+-[Technology](#technology)  
+-[Screenshots](#screenshots)  
+-[Planning Docs](#planning-docs)  
+-[User Stories](#user-stories)  
+-[Goals](#goals)  
+-[Closing Thoughts](#closing-thoughts)  
 
 ## Technology
 
