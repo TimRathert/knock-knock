@@ -32,22 +32,36 @@ Knock-Knock is here to guess who might be at the door. Knock-Knock takes user in
 
 <details>
 <summary> Main Screen </summary>
+<p>This is the main screen on load</p>
 <img src='./knock-knock/public/ss01.jpg' alt ='Main Screen' width="100%">
 </details>
 
 <details>
 <summary> In Progress </summary>
+<p>This is the app in progress</p>
 <img src='./knock-knock/public/ss02.jpg' alt ='In Progress' width="100%">
 </details>
 
 <details>
 <summary> Functions to add text to chat window </summary>
+<p>These are the functions to add text into the dialog box. These are called in several places to add new text content</p>
 <img src='./knock-knock/public/ss03.jpg' alt ='Functions to add text to chat window' width="100%">
 </details>
 
 <details>
 <summary> Chat window base code </summary>
+<p>This is the container where text is added using useRef</p>
 <img src='./knock-knock/public/ss04.jpg' alt ='Chat window code' width="100%">
+</details>
+
+<details>
+<summary>Backend Functionality</summary>
+<p>This is the function doing a lot of the heavy lifting on the backend. It:  
+1) Pulls all setups from the db  
+2) Compares them to the incoming joke setup using the sentence transformer/vector search mentioned in technology
+3) It returns the 'most similar' value  
+</p>
+<img src='./knock-knock/public/ss05.jpg' alt ='Chat window code' width="100%">
 </details>
 
 ## Planning Docs
