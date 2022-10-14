@@ -1,13 +1,29 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import styles from '../styles/Home.module.css';
 import Navbar from '../components/Nav';
 import JokeInterface from '../components/JokeInterface';
-import React, { useEffect, useState, useRef } from 'react';
-import Imports from '../components/imports'
+import React, { useEffect, useState, useRef, useContext, createContext } from 'react';
 import InteractiveWindow from '../components/InteractiveWindow';
+import firebase from  'firebase/app';
+import 'firebase/analytics';
+import { getAuth } from 'firebase/auth';
+import 'firebase/compat/firestore';
+
 
 export default function Home() {
+
+  const router = useRouter();
+  
+  useEffect(() => {
+    if(firebase == undefined){
+      router.push('/auth');
+    }
+  },[])
+
+  
+
 
   const [ setup, setSetup ] = useState('')
   const [ jokeState, setJokeState ] = useState('init')

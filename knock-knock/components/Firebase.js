@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Script from 'next/script';
 import Link from 'next/link';
 import { initializeApp } from "firebase/app";
@@ -10,6 +10,7 @@ import 'firebase/compat/firestore';
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css'
 
+
 function Firebase() {
     const firebaseConfig = {
       apiKey: process.env.FIREBASE_API_KEY,
@@ -17,7 +18,7 @@ function Firebase() {
       projectId: "knock-knock-ebb39",
       storageBucket: "knock-knock-ebb39.appspot.com",
       messagingSenderId: "696436060382",
-      appId: "1:696436060382:web:bff156188a34baea4b924f",
+      appId: process.env.APPID,
       measurementId: "G-MZZQ36QLWW"
     };
     const app = firebase.initializeApp(firebaseConfig);
@@ -25,7 +26,7 @@ function Firebase() {
     const db = firebase.firestore()
     
     var uiConfig = {
-      signInSuccessUrl: '<url-to-redirect-to-on-success>',
+      signInSuccessUrl: '/',
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -43,19 +44,20 @@ function Firebase() {
     
     // Initialize Firebase
   
-    ui.delete([DEFAULT])
-    const ui = new firebaseui.auth.AuthUI(firebase.auth());
-
-    this.ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth());
-
+    let ui = firebaseui.auth.AuthUI.getInstance();
+    if (!ui) {
+      ui = new firebaseui.auth.AuthUI(firebase.auth());
+    }
     ui.start('#firebaseui-auth-container', uiConfig);
+
+
       return (
-        <>
-          <p>hello</p>                        
+        <>            
           <div id='firebaseui-auth-container'></div>
         </>
       )
     }
+
 
 export default Firebase
 
