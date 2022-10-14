@@ -32,22 +32,22 @@ Knock-Knock is here to guess who might be at the door. Knock-Knock takes user in
 
 <details>
 <summary> Main Screen </summary>
-<img src='./knock-knock/public/knock-knock/public/ss01.jpg' alt ='Main Screen' width="100%">
+<img src='./knock-knock/public/ss01.jpg' alt ='Main Screen' width="100%">
 </details>
 
 <details>
 <summary> In Progress </summary>
-<img src='./knock-knock/public/knock-knock/public/ss02.jpg' alt ='In Progress' width="100%">
+<img src='./knock-knock/public/ss02.jpg' alt ='In Progress' width="100%">
 </details>
 
 <details>
 <summary> Functions to add text to chat window </summary>
-<img src='./knock-knock/public/knock-knock/public/ss03.jpg' alt ='Functions to add text to chat window' width="100%">
+<img src='./knock-knock/public/ss03.jpg' alt ='Functions to add text to chat window' width="100%">
 </details>
 
 <details>
 <summary> Chat window base code </summary>
-<img src='./knock-knock/public/knock-knock/public/ss04.jpg' alt ='Chat window code' width="100%">
+<img src='./knock-knock/public/ss04.jpg' alt ='Chat window code' width="100%">
 </details>
 
 ## Planning Docs
