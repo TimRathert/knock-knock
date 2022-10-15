@@ -1,9 +1,11 @@
 import React, { forwardRef, Fragment, useState, useEffect } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 
 
 function Nav() {
+
 
   const MyLink = forwardRef((props, ref) => {
     MyLink.displayName = 'MyLink'
@@ -16,12 +18,13 @@ function Nav() {
       </Link>
     )
   })
+
   // add conditional list for auth status
   const links = [
     { href: ' ', label: 'Account' },
     { href: '  ', label: 'Support' },
     { href: '   ', label: 'License' },
-    { href: '/sign-out', label: 'Sign out' },
+    { href: '/auth', label: 'Sign Out' },
   ]
 
 
@@ -47,6 +50,15 @@ function Nav() {
     }
   }
   ,[lastScrollY]);
+
+  const router = useRouter()
+  useEffect(() => {
+    const userLocal = JSON.parse(sessionStorage.getItem('user'));
+    if(!userLocal){
+      router.push('/auth');
+    }
+  },[])
+
 
   return (
     <div className={`

@@ -4,17 +4,21 @@ import dynamic from 'next/dynamic'
 
 
 
-const DynamicComponent = dynamic(() => 
+const FirebaseLogin = dynamic(() => 
   import('../../components/Firebase'),
     { ssr: false }
   )
+
+
+
+
 
 function index() {
 
   return (
     <>
         <Nav />
-        <DynamicComponent />
+        <FirebaseLogin />
     </>
   )
 }

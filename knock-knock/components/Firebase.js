@@ -9,9 +9,19 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css'
+import { useRouter } from 'next/router';
 
 
 function Firebase() {
+
+
+  // const userLocal = JSON.parse(localStorage.getItem('user'));
+  //   if(userLocal){
+  //     localStorage.removeItem('user')
+  //     router = useRouter()
+  //     router.push('/auth');
+
+  //   }
     const firebaseConfig = {
       apiKey: process.env.FIREBASE_API_KEY,
       authDomain: "knock-knock-ebb39.firebaseapp.com",
@@ -50,6 +60,15 @@ function Firebase() {
     }
     ui.start('#firebaseui-auth-container', uiConfig);
 
+    firebase.auth().onAuthStateChanged(user=>{
+      if (user) {
+          // store the user on local storage
+          sessionStorage.setItem('user', true);
+      } else {
+          // removes the user from local storage on logOut
+          sessionStorage.removeItem('user');
+      }
+  })
 
       return (
         <>            

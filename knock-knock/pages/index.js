@@ -14,16 +14,7 @@ import 'firebase/compat/firestore';
 
 export default function Home() {
 
-  const router = useRouter();
-  
-  useEffect(() => {
-    if(firebase == undefined){
-      router.push('/auth');
-    }
-  },[])
-
-  
-
+  const router = useRouter(); 
 
   const [ setup, setSetup ] = useState('')
   const [ jokeState, setJokeState ] = useState('init')
