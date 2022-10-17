@@ -60,24 +60,15 @@ function Nav() {
 
   
 
-  // useEffect(() => {
-  //   const userLocal = firebase.auth().currentUser;
-  //   if(userLocal == null){
-  //     router.push('/auth');
-  //   }
-  //   else{router.push('/')}
-  // },[])
-
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user && typeof window !== 'undefined') {
-      router.push('/')
-      // ...
-    } else {
-      router.push('/auth')
+  useEffect(() => {
+    const userLocal = firebase.auth().currentUser;
+    if(userLocal == null){
+      router.push('/auth');
     }
-  });
+    else{router.push('/')}
+  },[])
 
-// console.log(firebase.auth().currentUser)
+//console.log(firebase.auth().currentUser)
 
   return (
     <div className={`

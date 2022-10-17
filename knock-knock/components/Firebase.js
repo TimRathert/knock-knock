@@ -13,41 +13,49 @@ import { useRouter } from 'next/router';
 
 
 function Firebase() {
-    
-    var uiConfig = {
-      signInSuccessUrl: '/',
-      signInOptions: [
-        // Leave the lines as is for the providers you want to offer your users.
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.EmailAuthProvider.PROVIDER_ID,
-      ],
-      // tosUrl and privacyPolicyUrl accept either url string or a callback
-      // function.
-      // Terms of service url/callback.
-      tosUrl: '<your-tos-url>',
-      // Privacy policy url/callback.
-      privacyPolicyUrl: function() {
-        window.location.assign('<your-privacy-policy-url>');
-      }
-    };
-    
-    // Initialize Firebase
-    useEffect(() => {
-      let ui = firebaseui.auth.AuthUI.getInstance();
-      if (!ui) {
-        ui = new firebaseui.auth.AuthUI(firebase.auth());
-      }
-      ui.start('#firebaseui-auth-container', uiConfig);
-    },[])
+  const router = useRouter();
 
-
-
-      return (
-        <>            
-          <div id='firebaseui-auth-container'></div>
-        </>
-      )
+  var uiConfig = {
+    signInSuccessUrl: '/',
+    signInOptions: [
+      // Leave the lines as is for the providers you want to offer your users.
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    ],
+    // tosUrl and privacyPolicyUrl accept either url string or a callback
+    // function.
+    // Terms of service url/callback.
+    tosUrl: '<your-tos-url>',
+    // Privacy policy url/callback.
+    privacyPolicyUrl: function() {
+      window.location.assign('<your-privacy-policy-url>');
     }
+  };
+    
+  // Initialize Firebase
+  useEffect(() => {
+    let ui = firebaseui.auth.AuthUI.getInstance();
+    if (!ui) {
+      ui = new firebaseui.auth.AuthUI(firebase.auth());
+    }
+    ui.start('#firebaseui-auth-container', uiConfig);
+  },[])
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user && typeof window !== 'undefined') {
+      router.push('/')
+      // ...
+    } else {
+      router.push('/auth')
+    }
+  });
+
+  return (
+    <>            
+      <div id='firebaseui-auth-container'></div>
+    </>
+  )
+}
 
 
 export default Firebase
