@@ -6,6 +6,7 @@ import firebase from  'firebase/compat/app';
 import 'firebase/analytics';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import { Button } from 'react-scroll';
 
 
 function Nav() {
@@ -32,7 +33,6 @@ function Nav() {
     { href: ' ', label: 'Account' },
     { href: '  ', label: 'Support' },
     { href: '   ', label: 'License' },
-    { href: '/auth', label: 'Sign Out' },
   ]
 
 
@@ -112,11 +112,27 @@ function Nav() {
               )}
             </Menu.Item>
           ))}
+
+           <Menu.Item>
+              {({ active }) => (
+                <button
+                  onClick={() => {
+                    firebase.auth().signOut().then(function() {
+                    router.push('/auth')})
+                  }}
+
+                >
+                  Sign Out
+                </button>
+              )}
+            </Menu.Item> 
+
           </Menu.Items>
         </Transition>
       </Menu>
     </div>
-
+// firebase.auth().signOut().then(function() {
+//      router.push('/auth') 
   )
 }
 

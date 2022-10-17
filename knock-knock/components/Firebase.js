@@ -52,7 +52,7 @@ function Firebase() {
 
   return (
     <>            
-      <div id='firebaseui-auth-container'></div>
+      <div id='firebaseui-auth-container' className='mt-16'></div>
     </>
   )
 }
