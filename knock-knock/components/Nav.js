@@ -56,6 +56,7 @@ function Nav() {
       }
     }
   }
+// eslint-disable-next-line react-hooks/exhaustive-deps
   ,[lastScrollY]);
 
   
@@ -66,7 +67,15 @@ function Nav() {
       router.push('/auth');
     }
     else{router.push('/')}
+// eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user && typeof window !== 'undefined') {
+      router.push('/')
+      // ...
+    }
+  })
 
 //console.log(firebase.auth().currentUser)
 

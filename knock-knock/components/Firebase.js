@@ -39,6 +39,7 @@ function Firebase() {
       ui = new firebaseui.auth.AuthUI(firebase.auth());
     }
     ui.start('#firebaseui-auth-container', uiConfig);
+// eslint-disable-next-line react-hooks/exhaustive-deps
   },[])
 
   firebase.auth().onAuthStateChanged((user) => {
