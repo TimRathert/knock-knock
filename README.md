@@ -105,10 +105,11 @@ Knock-Knock is here to guess who might be at the door. Knock-Knock takes user in
 | Frontend styling | Done |
 | Firebase Integration | Done |
 | Authentication | Actively Debugging |
+| Sessions Based on Firebase Login | Acitvely Debugging |
 | Condiontal Returns * | Soon |
-| Sessions Based on Firebase Login | Soon |
 | Input filtering | Stretch |
 | Multiple Joke Guesses | Later |
+| Send returns through OpenAI sentence completion for more human-like interactions | Eventually |
 
 * Conditional returns based on calculated relevance would make the interaction feel more authentic. Plan is to skip guessing if the calculated accuracy is below n%.
 
