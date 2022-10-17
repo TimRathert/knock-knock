@@ -9,11 +9,10 @@ const FirebaseLogin = dynamic(() =>
     { ssr: false }
   )
 
-
 function index() {
 
   const router = useRouter()
-  
+
   firebase.auth().onAuthStateChanged((user) => {
     if (user && typeof window !== 'undefined') {
       router.push('/')
