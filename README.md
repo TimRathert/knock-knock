@@ -104,8 +104,8 @@ Knock-Knock is here to guess who might be at the door. Knock-Knock takes user in
 | front/back interaction | Done |
 | Frontend styling | Done |
 | Firebase Integration | Done |
-| Authentication | Soon |
-| Condiontal Returns *| Soon |
+| Authentication | Actively Debugging |
+| Condiontal Returns * | Soon |
 | Sessions Based on Firebase Login | Soon |
 | Input filtering | Stretch |
 | Multiple Joke Guesses | Later |
