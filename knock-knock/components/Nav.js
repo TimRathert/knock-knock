@@ -1,9 +1,20 @@
 import React, { forwardRef, Fragment, useState, useEffect } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
+import firebase from  'firebase/compat/app';
+import 'firebase/analytics';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
+import { Button } from 'react-scroll';
 
 
 function Nav() {
+  
+  const router = useRouter()
+  const [ show, setShow ] = useState(true);
+  const [ lastScrollY, setLastScrollY ] = useState(0); 
+  
 
   const MyLink = forwardRef((props, ref) => {
     MyLink.displayName = 'MyLink'
@@ -16,18 +27,15 @@ function Nav() {
       </Link>
     )
   })
+
   // add conditional list for auth status
   const links = [
-    { href: '/account-settings', label: 'Account' },
-    { href: '/support', label: 'Support' },
-    { href: '/license', label: 'License' },
-    { href: '/sign-out', label: 'Sign out' },
+    { href: ' ', label: 'Account' },
+    { href: '  ', label: 'Support' },
+    { href: '   ', label: 'License' },
   ]
 
 
-  const [ show, setShow ] = useState(true);
-  const [ lastScrollY, setLastScrollY ] = useState(0); 
-  
   const NavVis = () => {
     if (typeof window !== 'undefined') {
       if (window.scrollY > lastScrollY){
@@ -38,6 +46,8 @@ function Nav() {
     setLastScrollY(window.scrollY)
   };
 
+ 
+
   useEffect(() => {
     if (typeof window !== undefined){
       window.addEventListener('scroll', NavVis);
@@ -46,7 +56,28 @@ function Nav() {
       }
     }
   }
+// eslint-disable-next-line react-hooks/exhaustive-deps
   ,[lastScrollY]);
+
+  
+
+  useEffect(() => {
+    const userLocal = firebase.auth().currentUser;
+    if(userLocal == null){
+      router.push('/auth');
+    }
+    else{router.push('/')}
+// eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user && typeof window !== 'undefined') {
+      router.push('/')
+      // ...
+    }
+  })
+
+//console.log(firebase.auth().currentUser)
 
   return (
     <div className={`
@@ -65,7 +96,7 @@ function Nav() {
     motion-reduce:transition-none motion-reduce:hover:transform-none
     ${show ? 'top-0' : '' }
     `}
-    > <span className={`select-none px-8 py-2 text-xl font-light tracking-widest`}>knock</span>
+    > <span className={`select-none px-8 py-2 text-xl font-light tracking-widest`}><Link href='/'>knock</Link></span>
       <Menu as="div" className="relative transition-opacity hover:bg-color5/10 rounded-md">
         <Menu.Button className="px-8 py-2 rounded-full text-white">Menu</Menu.Button>
         <Transition
@@ -90,11 +121,27 @@ function Nav() {
               )}
             </Menu.Item>
           ))}
+
+           <Menu.Item>
+              {({ active }) => (
+                <button
+                  onClick={() => {
+                    firebase.auth().signOut().then(function() {
+                    router.push('/auth')})
+                  }}
+
+                >
+                  Sign Out
+                </button>
+              )}
+            </Menu.Item> 
+
           </Menu.Items>
         </Transition>
       </Menu>
     </div>
-
+// firebase.auth().signOut().then(function() {
+//      router.push('/auth') 
   )
 }
 
