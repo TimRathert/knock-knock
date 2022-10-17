@@ -24,6 +24,9 @@ function index() {
     <>
         <Nav />
         <FirebaseLogin />
+        <div className='flex justify-center'>
+          <a href='https://venmo.com/code?user_id=2074327587487744379' className='bg-color2 p-2 rounded-lg transition-all hover:bg-color5' target="_blank">Buy Tim some coffee</a>
+        </div>
     </>
   )
 }
