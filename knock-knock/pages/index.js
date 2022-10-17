@@ -15,12 +15,10 @@ import 'firebase/compat/firestore';
 export default function Home() {
 
   const router = useRouter(); 
-
   const [ setup, setSetup ] = useState('')
   const [ jokeState, setJokeState ] = useState('init')
   const chatWindow = useRef(null)
-  // joke states: init, setup, punchline, writeNew (optional), end
-  //console.log(jokeState)
+
   return (
     <div>
       <Head>

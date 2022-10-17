@@ -2,10 +2,18 @@ import React, { forwardRef, Fragment, useState, useEffect } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router';
+import firebase from  'firebase/compat/app';
+import 'firebase/analytics';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
 
 function Nav() {
-
+  
+  const router = useRouter()
+  const [ show, setShow ] = useState(true);
+  const [ lastScrollY, setLastScrollY ] = useState(0); 
+  
 
   const MyLink = forwardRef((props, ref) => {
     MyLink.displayName = 'MyLink'
@@ -28,9 +36,6 @@ function Nav() {
   ]
 
 
-  const [ show, setShow ] = useState(true);
-  const [ lastScrollY, setLastScrollY ] = useState(0); 
-  
   const NavVis = () => {
     if (typeof window !== 'undefined') {
       if (window.scrollY > lastScrollY){
@@ -40,6 +45,8 @@ function Nav() {
     }
     setLastScrollY(window.scrollY)
   };
+
+ 
 
   useEffect(() => {
     if (typeof window !== undefined){
@@ -51,14 +58,26 @@ function Nav() {
   }
   ,[lastScrollY]);
 
-  const router = useRouter()
-  useEffect(() => {
-    const userLocal = JSON.parse(sessionStorage.getItem('user'));
-    if(!userLocal){
-      router.push('/auth');
-    }
-  },[])
+  
 
+  // useEffect(() => {
+  //   const userLocal = firebase.auth().currentUser;
+  //   if(userLocal == null){
+  //     router.push('/auth');
+  //   }
+  //   else{router.push('/')}
+  // },[])
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user && typeof window !== 'undefined') {
+      router.push('/')
+      // ...
+    } else {
+      router.push('/auth')
+    }
+  });
+
+// console.log(firebase.auth().currentUser)
 
   return (
     <div className={`

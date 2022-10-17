@@ -13,27 +13,6 @@ import { useRouter } from 'next/router';
 
 
 function Firebase() {
-
-
-  // const userLocal = JSON.parse(localStorage.getItem('user'));
-  //   if(userLocal){
-  //     localStorage.removeItem('user')
-  //     router = useRouter()
-  //     router.push('/auth');
-
-  //   }
-    const firebaseConfig = {
-      apiKey: process.env.FIREBASE_API_KEY,
-      authDomain: "knock-knock-ebb39.firebaseapp.com",
-      projectId: "knock-knock-ebb39",
-      storageBucket: "knock-knock-ebb39.appspot.com",
-      messagingSenderId: "696436060382",
-      appId: process.env.APPID,
-      measurementId: "G-MZZQ36QLWW"
-    };
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth()
-    const db = firebase.firestore()
     
     var uiConfig = {
       signInSuccessUrl: '/',
@@ -53,22 +32,15 @@ function Firebase() {
     };
     
     // Initialize Firebase
-  
-    let ui = firebaseui.auth.AuthUI.getInstance();
-    if (!ui) {
-      ui = new firebaseui.auth.AuthUI(firebase.auth());
-    }
-    ui.start('#firebaseui-auth-container', uiConfig);
-
-    firebase.auth().onAuthStateChanged(user=>{
-      if (user) {
-          // store the user on local storage
-          sessionStorage.setItem('user', true);
-      } else {
-          // removes the user from local storage on logOut
-          sessionStorage.removeItem('user');
+    useEffect(() => {
+      let ui = firebaseui.auth.AuthUI.getInstance();
+      if (!ui) {
+        ui = new firebaseui.auth.AuthUI(firebase.auth());
       }
-  })
+      ui.start('#firebaseui-auth-container', uiConfig);
+    },[])
+
+
 
       return (
         <>            
