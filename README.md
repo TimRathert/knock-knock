@@ -19,8 +19,8 @@ Knock-Knock is here to guess who might be at the door. Knock-Knock takes user in
 * TailwindCSS  
 * HeadlessUI  
 * React-Scroll  
-* Deployed with Vercel  
 * Firebase (Authentication)
+* Deployed with Vercel  
 
 #### Back End
 * Python
