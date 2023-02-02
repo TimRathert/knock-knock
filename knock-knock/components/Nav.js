@@ -107,7 +107,7 @@ function Nav() {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
                 >
-          <Menu.Items className="absolute bg-color2 p-4 rounded-md flex flex-col w-24 shadow-inner shadow-color1">
+          <Menu.Items className={`absolute bg-color2 p-4 rounded-md flex flex-col w-24 shadow-inner shadow-color1`}>
             {links.map((link) => (
             /* Use the `active` state to conditionally style the active item. */
             <Menu.Item key={link.href}>
